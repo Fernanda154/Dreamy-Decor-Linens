@@ -18,19 +18,6 @@ export class CreateCart1708213136840 implements MigrationInterface {
             type: "int",
           },
           {
-            name: "product_id",
-            type: "int",
-          },
-          {
-            name: "quantity",
-            type: "int",
-          },
-          {
-            name: "created_at",
-            type: "timestamp",
-            default: "CURRENT_TIMESTAMP",
-          },
-          {
             name: "updated_at",
             type: "timestamp",
             default: "CURRENT_TIMESTAMP",
@@ -43,13 +30,7 @@ export class CreateCart1708213136840 implements MigrationInterface {
             referencedTableName: "user",
             referencedColumnNames: ["id"],
             columnNames: ["user_id"],
-          },
-          {
-            name: "product",
-            referencedTableName: "product",
-            referencedColumnNames: ["id"],
-            columnNames: ["product_id"],
-          }          
+          }        
         ],
       })
     );

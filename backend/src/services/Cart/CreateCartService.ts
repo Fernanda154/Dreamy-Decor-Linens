@@ -4,15 +4,11 @@ import { AppDataSource } from "../../../data-source";
 
 export class CreateCartService {
   async execute({
-    quantity,
-    fk_user,
-    products,
+    fk_user
   }: CartRequest): Promise<Cart | Error> {
     const repo = AppDataSource.getRepository(Cart);
     const cart = repo.create({
-      quantity,
       fk_user,
-      products,
     });
     await repo.save(cart);
     return cart;

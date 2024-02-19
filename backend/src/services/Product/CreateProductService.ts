@@ -6,8 +6,7 @@ export class CreateProductService {
   async execute({
     name,
     description,
-    price,
-    carts,
+    price
   }: ProductRequest): Promise<Product | Error> {
     const repo = AppDataSource.getRepository(Product);
     const check_product = await repo.findOne({ where: { name } });
@@ -15,8 +14,7 @@ export class CreateProductService {
       const product = repo.create({
         name,
         description,
-        price,
-        carts,
+        price
       });
       await repo.save(product);
       return product;

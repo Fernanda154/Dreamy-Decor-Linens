@@ -1,16 +1,10 @@
 import { Entity, Column, PrimaryColumn } from "typeorm";
 
-@Entity("product")
-export class Product {
+@Entity("category")
+export class Category {
   @PrimaryColumn()
   id: number;
 
   @Column()
   name: string;
-
-  @Column()
-  price: number;
-
-  @Column()
-  description: string;
 }
