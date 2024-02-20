@@ -2,7 +2,7 @@ import { Category } from "../../entities/Category";
 import { CategoryRequest } from "../../types/CategoryRequest";
 import { AppDataSource } from "../../../data-source";
 
-export class CreateCategorytService {
+export class CreateCategoryService {
   async execute({
     name
   }: CategoryRequest): Promise<Category | Error> {
