@@ -5,5 +5,5 @@ export type ProductRequest = {
   description: string;
   price: number;
   fk_user?: number;
-  carts?: CartRequest[];
+  categories?: [];
 };

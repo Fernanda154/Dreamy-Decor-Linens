@@ -8,5 +8,5 @@ app.use(express.json());
 app.use(routes);
 
 app.listen(3001, () => {
-  console.log("Server is running on port 3001");
+  console.log("Dreamy Decor no ar. Porta 3001");
 });

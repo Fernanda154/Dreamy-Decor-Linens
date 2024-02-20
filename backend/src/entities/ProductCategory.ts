@@ -7,20 +7,6 @@ export class ProductCategory {
   @PrimaryColumn()
   id: string;
 
-  // @Column()
-  // fk_product: number;
-
-  // @Column()
-  // fk_category: number;
-
-  // @ManyToOne(() => Product)
-  // @JoinColumn({ name: "fk_product" })
-  // product_id: Product;
-
-  // @ManyToOne(() => Category)
-  // @JoinColumn({ name: "fk_category" })
-  // category_id: Category;
-
   @ManyToOne(() => Product, product => product.categories)
   @JoinColumn({ name: 'product_id' })
   product: Product;

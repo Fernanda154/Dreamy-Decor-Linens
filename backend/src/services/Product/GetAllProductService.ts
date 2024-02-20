@@ -9,6 +9,7 @@ export class GetAllProductService {
       try {
           const productsFiltered = repository.createQueryBuilder('product')
           .leftJoinAndSelect('product.categories', 'product_category')
+          .leftJoinAndSelect('product_category.category', 'category')
           .where('category.id = :id', {id: search})
           .getMany();
     
