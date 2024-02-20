@@ -4,7 +4,6 @@ import { Product } from "../../entities/Product";
 export class GetAllProductService {
   async execute({search}: { search?: number } = {}): Promise<Product[]> {
     const repository = AppDataSource.getRepository(Product);
-    console.log("Id da categoria ", search);
     if(search){
       try {
           const productsFiltered = repository.createQueryBuilder('product')

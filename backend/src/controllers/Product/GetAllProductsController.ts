@@ -3,7 +3,6 @@ import { GetAllProductService } from "../../services/Product/GetAllProductServic
 
 export class GetAllProductsController {
   async handle(request: Request, response: Response) {
-    console.log('testeee', request.params );
     const service = new GetAllProductService();
 
     const result = await service.execute({ search: parseInt(request.params.search) });
