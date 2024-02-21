@@ -21,7 +21,5 @@ export class GetAllProductService {
       const products = await repository.find();
       return products;
     }
-
-    
   }
 }

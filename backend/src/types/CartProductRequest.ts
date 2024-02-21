@@ -1,6 +1,6 @@
 export type CartProductRequest = {
     id?: number;
-    fk_product: number;
-    fk_cart: number;
+    product_id: number;
+    cart_id: number;
     quantity: number;
 };
