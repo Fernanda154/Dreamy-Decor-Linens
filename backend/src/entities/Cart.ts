@@ -18,11 +18,11 @@ export class Cart {
   id: number;
 
   @Column()
-  fk_user: number;
+  user_id: number;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: "fk_user" })
-  user_id: User;
+  @JoinColumn({ name: "id" })
+  fk_user: User;
 
   @OneToMany(() => CartProduct, cartProduct => cartProduct.cart)
   products: CartProduct[];

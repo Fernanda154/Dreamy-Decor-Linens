@@ -6,6 +6,7 @@ import {CreateCategoryController} from "./controllers/Category/CreateCategoryCon
 import { GetAllCategoryController} from "./controllers/Category/GetAllCategoryController";
 import { CreateUserController } from "./controllers/User/CreateUserController";
 import { AddProductOnCartController } from "./controllers/Cart/AddProductOnCartController";
+import { ResumeCartController } from "./controllers/Cart/ResumeCartController";
 
 const routes = Router();
 
@@ -23,6 +24,7 @@ routes.post("/users", new CreateUserController().handle);
 
 //Rotas do carrinho
 routes.post("/cart", new AddProductOnCartController().handle);
+routes.get("/cart/:cart_id", new ResumeCartController().handle);
 
 
 export { routes };
