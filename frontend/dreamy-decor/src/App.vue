@@ -4,7 +4,10 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
+  <v-layout>
+    <RouterView />
+  </v-layout>
+  
 </template>
 
 <style scoped>
