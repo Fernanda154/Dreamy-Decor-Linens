@@ -90,7 +90,7 @@ export default {
     addProductToCart(product) {
       this.cart.products.push(product)
       this.cart.valueTotal += product.price
-      localStorage.setItem('cart', JSON.stringify(this.cart))
+      localStorage.setItem('cart', this.cart)
       this.addToCart(this.cart.products.length)
     }
   }

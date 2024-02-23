@@ -7,10 +7,11 @@
 
       <template v-slot:append>
         <RouterLink to="/products" class="mr-5">Produtos</RouterLink>
-        <v-badge :content="cartItems" color="error">
-          <svg-icon type="mdi" :path="bag" ></svg-icon>
-        </v-badge>
-
+        <RouterLink to="/resume" >
+          <v-badge :content="cartItems" color="error">
+            <svg-icon type="mdi" :path="bag" to="/resume"></svg-icon>
+          </v-badge>
+        </RouterLink>
         <svg-icon type="mdi" :path="user" class="ml-5"></svg-icon>
       </template>
     </v-app-bar>
