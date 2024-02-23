@@ -7,7 +7,7 @@
 
       <template v-slot:append>
         <RouterLink to="/products" class="mr-5">Produtos</RouterLink>
-        <v-badge content="9+" color="error">
+        <v-badge :content="cartItems" color="error">
           <svg-icon type="mdi" :path="bag" ></svg-icon>
         </v-badge>
 
@@ -19,15 +19,40 @@
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiShoppingOutline, mdiAccount } from '@mdi/js'
 import { RouterLink } from 'vue-router';
+import { mapState } from 'vuex';
+
 export default {
   components: {
     SvgIcon,
     RouterLink
   },
+  computed: {
+    ...mapState(['cartItems'])
+  },
   data() {
     return {
       bag: mdiShoppingOutline,
-      user: mdiAccount
+      user: mdiAccount,
+      quantity_card: localStorage.getItem('quantity_cart')
+    }
+  },
+  created() {
+    // Adiciona um ouvinte para o evento 'storage'
+    window.addEventListener('storage', this.handleStorageChange);
+    
+    // Inicialmente, obtém o conteúdo atual do localStorage
+    this.quantity_card = localStorage.getItem('itemChave');
+  },
+  methods:{
+    handleStorageChange(event) {
+      // Verifica se a mudança foi para a chave específica que você está observando
+      if (event.key === 'quantity_cart') {
+        // Atualiza o conteúdo do localStorage no componente
+        this.quantity_card = event.newValue;
+        
+        // Faça outras ações conforme necessário
+        console.log('Mudança no Local Storage detectada:', event.newValue);
+      }
     }
   }
 }

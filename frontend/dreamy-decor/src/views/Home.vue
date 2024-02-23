@@ -1,4 +1,5 @@
 <template>
+  <div>
     <Navbar></Navbar>
     <v-container >
       <v-row >
@@ -13,7 +14,9 @@
         </v-col>
         
       </v-row>
-    </v-container> 
+    </v-container>
+  </div>
+     
 </template>
 <script>
     import Navbar from '@/components/Header/nav-page.vue';
