@@ -3,16 +3,17 @@
     <RouterView />
     <Navbar></Navbar>
     <v-container>
-      <v-select
-        v-model="selectedCategory"
-        :items="categories"
-        item-title="name"
-        item-value="id"
-        label="Filtre por categorias"
-        @update:modelValue="filterProducts"
-        
-        
+      <v-row>
+        <v-select
+          v-model="selectedCategory"
+          :items="categories"
+          item-title="name"
+          item-value="id"
+          class="mt-5"
+          label="Filtre por categorias"
+          @update:modelValue="filterProducts"        
       ></v-select>
+      </v-row>
       <v-row class="product-row">
         <v-col v-for="product in products" :key="product.id">
           <v-card class="product-card">
@@ -46,7 +47,8 @@ export default {
       categories: [],
       iconCartHeart: mdiCartHeart,
       cart: {
-        products: []
+        products: [],
+        valueTotal: 0
       }
     }
   },
@@ -88,17 +90,20 @@ export default {
     },
     ...mapActions(['addToCart']),
     addProductToCart(product) {
-      this.cart.products.push(product)
-      this.cart.valueTotal += product.price
-      localStorage.setItem('cart', this.cart)
+      this.cart.products.push(product);
+      
+      this.cart.valueTotal = parseInt(product.price) + this.cart.valueTotal;
+      console.log('produto', this.cart.valueTotal);
+      localStorage.setItem('cart', JSON.stringify(this.cart))
       this.addToCart(this.cart.products.length)
-    }
+    }    
   }
 }
 </script>
 <style>
 .v-container {
   margin-top: 10vh;
+  width: 90vw;
   color: #6f3519;
 }
 .product-row {
@@ -107,9 +112,10 @@ export default {
 }
 
 .product-card {
-  margin-bottom: 20px;
+  margin-bottom: 5vh;
 }
 .v-card {
   min-height: 100%;
+  width: 15vw;
 }
 </style>
