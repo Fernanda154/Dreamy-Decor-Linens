@@ -2,9 +2,8 @@ import { Seeder, SeederFactoryManager } from "typeorm-extension";
 import { DataSource } from "typeorm";
 import { Product } from "../../entities/Product";
 import { ProductCategory } from "../../entities/ProductCategory";
-import { Category } from "../../entities/Category";
 
-export default class UserSeeder implements Seeder {
+export default class ProductSeeder implements Seeder {
   /**
    * Track seeder execution.
    *
@@ -18,8 +17,8 @@ export default class UserSeeder implements Seeder {
   ): Promise<any> {
     const repository = dataSource.getRepository(Product);
     const repository2 = dataSource.getRepository(ProductCategory);
-
-    await repository.insert([
+    
+    const products = await repository.insert([
       {
         name: "Toalha de banho",
         price: 10,
@@ -60,19 +59,12 @@ export default class UserSeeder implements Seeder {
         price: 150,
         description: "Creme para os pés",
       },
+
     ]);
-    // const categories = ['Categoria 1', 'Categoria 2'];
-    // const productCategories = [];
-
-    // for (const categoryName of categories) {
-    //   for (const productId of products.map((idObj: any) => idObj.id)) {
-    //     productCategories.push(repository2.create({ product, categoryId: category.id }));
-    //   }
-    // }
-
-    // await repository2.insert(productCategories);
-
-    //   console.log('Products and categories seeded successfully');
-    // }
+    const productCategories = [];
+    
+    products.generatedMaps.map((product)=>{
+      productCategories.push(repository2.create({ product: product, category: {name: 'Cremes'} }));
+    });
   }
 }

@@ -2,7 +2,7 @@ import { Seeder, SeederFactoryManager } from "typeorm-extension";
 import { DataSource } from "typeorm";
 import { Category } from "../../entities/Category";
 
-export default class UserSeeder implements Seeder {
+export default class CategorySeeder implements Seeder {
   /**
    * Track seeder execution.
    *
