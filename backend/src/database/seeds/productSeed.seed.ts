@@ -1,7 +1,6 @@
 import { Seeder, SeederFactoryManager } from "typeorm-extension";
 import { DataSource } from "typeorm";
 import { Product } from "../../entities/Product";
-import { ProductCategory } from "../../entities/ProductCategory";
 
 export default class ProductSeeder implements Seeder {
   /**
@@ -16,7 +15,6 @@ export default class ProductSeeder implements Seeder {
     factoryManager: SeederFactoryManager
   ): Promise<any> {
     const repository = dataSource.getRepository(Product);
-    const repository2 = dataSource.getRepository(ProductCategory);
     
     const products = await repository.insert([
       {
@@ -61,10 +59,6 @@ export default class ProductSeeder implements Seeder {
       },
 
     ]);
-    const productCategories = [];
-    
-    products.generatedMaps.map((product)=>{
-      productCategories.push(repository2.create({ product: product, category: {name: 'Cremes'} }));
-    });
+   
   }
 }
