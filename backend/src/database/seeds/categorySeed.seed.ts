@@ -19,12 +19,18 @@ export default class CategorySeeder implements Seeder {
       {
         name: "Toalha de banho",
       },
+      {
+        name: "Toalha de rosto",
+      },
+      {
+        name: "Cama",
+      },
+      {
+        name: "Mesa",
+      },
+      {
+        name: "Banho",
+      },
     ]);
-
-    // ---------------------------------------------------
-
-    const categoryFactory = await factoryManager.get(Category);
-    await categoryFactory.save();
-    await categoryFactory.saveMany(5);
   }
 }

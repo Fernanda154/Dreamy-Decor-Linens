@@ -22,12 +22,14 @@
     import Navbar from '@/components/Header/nav-page.vue';
     import Carousel from '@/components/Home/HomeCarousel/home-carousel.vue';
     import GridCategories from '@/components/Home/GridCategories/grid-categories.vue';
+    
     export default {
       components: {
         Navbar,
         Carousel,
         GridCategories
       },
+      
       
     }
 </script>

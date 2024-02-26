@@ -17,7 +17,7 @@
       <v-row class="product-row">
         <v-col v-for="product in products" :key="product.id">
           <v-card class="product-card">
-            <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png" aspect-ratio="16/9">
+            <v-img src="https://cdn.encontreofabricante.com.br/media/categories/cama_mesa_e_banho-min.png" aspect-ratio="16/9">
               <v-btn :icon="iconCartHeart || 0" @click="addProductToCart(product)"></v-btn>
             </v-img>
             <v-card-title>{{ product.name }}</v-card-title>
@@ -35,6 +35,7 @@ import ProductService from '@/services/models/ProductService.js'
 import CategoryService from '@/services/models/CategoryService.js'
 import { mdiCartHeart } from '@mdi/js'
 import { mapActions } from 'vuex'
+import CartProductService from '@/services/models/CartProductService'
 
 export default {
   components: {
@@ -94,8 +95,18 @@ export default {
       
       this.cart.valueTotal = parseInt(product.price) + this.cart.valueTotal;
       console.log('produto', this.cart.valueTotal);
-      localStorage.setItem('cart', JSON.stringify(this.cart))
-      this.addToCart(this.cart.products.length)
+      localStorage.setItem('cart', JSON.stringify(this.cart));
+      this.addToCart(this.cart.products.length);
+
+
+      CartProductService.post({product: product.id, cart: 1, quantity: this.cart.products.length})
+        .then((response) => {
+          console.log(response.data)
+        })
+        .catch((e) => {
+          console.log(e)
+        });
+     
     }    
   }
 }

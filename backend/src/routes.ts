@@ -7,6 +7,7 @@ import { GetAllCategoryController} from "./controllers/Category/GetAllCategoryCo
 import { CreateUserController } from "./controllers/User/CreateUserController";
 import { AddProductOnCartController } from "./controllers/Cart/AddProductOnCartController";
 import { ResumeCartController } from "./controllers/Cart/ResumeCartController";
+import { GetCategoryController } from "./controllers/Category/GetCategoryController";
 
 const routes = Router();
 
@@ -18,6 +19,7 @@ routes.put("/products/:id", new UpdateProductController().handle);
 // Rotas de categorias
 routes.get("/categories", new GetAllCategoryController().handle);
 routes.post("/categories", new CreateCategoryController().handle);
+routes.put("/categories/:name", new GetCategoryController().handle);
 
 // Rotas de usuários
 routes.post("/users", new CreateUserController().handle);
