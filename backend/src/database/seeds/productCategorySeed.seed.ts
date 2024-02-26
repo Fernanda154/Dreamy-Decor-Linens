@@ -31,6 +31,8 @@ export default class ProductCategorySeeder implements Seeder {
 
     await productCategoryRepository.save(productCategories);
 
-    console.log("Product categories seeded successfully");
+    console.log(
+      "Tabela relacionada de produtos e categorias populada com sucesso."
+    );
   }
 }
