@@ -7,6 +7,7 @@
   3. Para rodar as migrações, execute o comando: yarn typeorm migration:run -d data-source.ts
   4. Em seguida, para iniciar o servidor, execute o comando yarn dev.
   5. Para testar as rotas, existe um arquivo chamado Insomnia_2024-02-22.json que pode ser importado no aplicavo Insomnia.
+  6. Para popular previamente o banco, execute o comando: yarn seed:run
 
   Para rodar o frontend siga os seguintes passos:
   1. No diretório frontend, execute o comando npm install.
