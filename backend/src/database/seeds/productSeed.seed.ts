@@ -57,7 +57,7 @@ export default class ProductSeeder implements Seeder {
         price: 150,
         description: "Creme para os pés",
       },
-
+      
     ]);
    
   }
